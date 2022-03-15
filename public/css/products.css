@@ -1,0 +1,374 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+html,
+body,
+.login-background {
+    height: 100%;
+}
+
+.loader.pre {
+    display: block !important;
+    background: #fff;
+}
+
+.loader {
+    display: none;
+    background: rgba(255, 255, 255, 0.75);
+}
+
+.login-background {
+    position: relative;
+    overflow: auto;
+}
+
+.login-background::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+.login-background>img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.login-card {
+    position: relative;
+    width: 520px;
+}
+
+.login-card .bg-white {
+    padding: 97px 60px;
+}
+
+.login-card-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #18BFFF;
+    transform: translate(12px, 12px);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.login-title {
+    position: relative;
+    font-size: 35px;
+    padding-bottom: 19.5px;
+    margin-bottom: 50.5px;
+}
+
+.login-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 142px;
+    height: 2px;
+    background: #18BFFF;
+}
+
+.login-card input {
+    border-radius: 0;
+    padding: 8.5px 10px;
+    border: 1px solid #727272;
+    margin-bottom: 30px;
+    outline: none;
+}
+
+.btn-prim {
+    padding: 5px 57px;
+    background-color: #18BFFF;
+    border-radius: 10px;
+    color: #fff !important;
+    font-size: 14px;
+}
+
+.btn-logout {
+    padding: 6.5px 29px;
+}
+
+.btn-prim:focus {
+    box-shadow: none !important;
+}
+
+.toast {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 1s;
+}
+
+.toast.show {
+    transform: translate(-50%, 0%);
+    opacity: 1;
+}
+
+.toast-danger {
+    color: #EA0000;
+}
+
+.header {
+    background-color: #020203;
+    padding: 28px 0;
+    margin-bottom: 80px;
+}
+
+.products-title {
+    position: relative;
+    font-size: 35px;
+    padding-bottom: 19.5px;
+    margin-bottom: 61.5px;
+}
+
+.products-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 142px;
+    height: 2px;
+    background: #18BFFF;
+}
+
+.products-filters-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: #18BFFF;
+}
+
+.filter-wrapper .filter-title .arrow {
+    transition: 0.5s;
+}
+
+.filter-wrapper.open .filter-title .arrow {
+    transform: rotate(180deg);
+}
+
+.filter-wrapper.open .filter-subitems {
+    opacity: 1;
+}
+
+.filter-title {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.filter-subitems {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.filter-subitems label {
+    cursor: pointer;
+}
+
+.filter-subitems p {
+    transition: 0.5s;
+}
+
+.filter-subitems p:hover,
+.filter-subitems input:checked~p {
+    color: #18BFFF;
+}
+
+.tags-title {
+    font-size: 18px;
+}
+
+.tag-label {
+    cursor: pointer;
+}
+
+.tag {
+    background: #F5F5F5;
+    color: #18BFFF;
+    border-radius: 10px;
+    padding: 4.5px 13px;
+    font-size: 12px;
+    transition: 0.5s;
+}
+
+.tag-label .tag:hover,
+.tag-label input:checked~.tag {
+    color: #F5F5F5;
+    background: #18BFFF;
+}
+
+.product-image {
+    position: relative;
+    padding-top: 100%;
+}
+
+.product-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-title {
+}
+
+.product-sku {
+    width: 98px;
+}
+
+.products-pagination-wrapper .page-item.disabled:first-child,
+.products-pagination-wrapper .page-item.disabled:last-child {
+    display: none !important;
+}
+
+.products-pagination-wrapper .page-item:first-child .page-link,
+.products-pagination-wrapper .page-item:last-child .page-link {
+    font-size: 0;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.products-pagination-wrapper .page-item:first-child .page-link {
+    background-image: url('../images/new/prev.svg');
+}
+
+.products-pagination-wrapper .page-item:last-child .page-link {
+    background-image: url('../images/new/next.svg');
+}
+
+.products-pagination-wrapper .page-item .page-link {
+    border: none;
+    padding: 3px 12px;
+    color: inherit;
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+.products-pagination-wrapper .page-item.active .page-link {
+    background: #18BFFF;
+    color: #fff;
+}
+
+[animate] {
+    transition: transform 1s 0.5s, opacity 1s 0.5s;
+    opacity: 0;
+}
+
+[animate].show {
+    opacity: 1;
+}
+
+[animate="left"] {
+    transform: translateX(-15px);
+}
+
+[animate="left"].show {
+    transform: translateX(0);
+}
+
+[animate="right"] {
+    transform: translateX(15px);
+}
+
+[animate="right"].show {
+    transform: translateX(0);
+}
+
+[animate="up"] {
+    transform: translateY(-15px);
+}
+
+[animate="up"].show {
+    transform: translateY(0);
+}
+
+[animate="down"] {
+    transform: translateY(15px);
+}
+
+[animate="down"].show {
+    transform: translateY(0);
+}
+
+@media not all and (hover: none) {
+    .login-card:hover::before {
+        transform: translate(30px, 30px);
+    }
+}
+
+/* X-Large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) {}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    .products-filters-wrapper::after {
+        top: auto;
+        right: auto;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+    }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {}
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .login-card::before {
+        transform: translate(12px, 12px);
+    }
+
+    .login-card .bg-white {
+        padding: 70px 30px;
+    }
+
+    .header {
+        padding: 18px 0;
+    }
+
+    .page-item {
+        display: none;
+    }
+    .page-item:first-child,
+    .page-item:nth-child(2),
+    .page-item:nth-child(3),
+    .page-item:nth-last-child(2),
+    .page-item:nth-last-child(3),
+    .page-item:last-child,
+    .page-item.active,
+    .page-item.disabled {
+        display: block;
+    }
+}
