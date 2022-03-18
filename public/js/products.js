@@ -1,93 +1,122 @@
-$(window).on('load', function () {
-    $('.pre.loader').fadeOut(function () {
-        $(this).removeClass('pre');
+$(window).on("load", function () {
+    $(".pre.loader").fadeOut(function () {
+        $(this).removeClass("pre");
     });
 });
 
-$(window).scroll(function() {
-    $('[animate]').each(function() {
-        var top_of_element = $(this).offset().top;
-        var bottom_of_element = $(this).offset().top + $(this).outerHeight();
-        var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
-        var top_of_screen = $(window).scrollTop();
+$(window)
+    .scroll(function () {
+        $("[animate]").each(function () {
+            var top_of_element = $(this).offset().top;
+            var bottom_of_element =
+                $(this).offset().top + $(this).outerHeight();
+            var bottom_of_screen =
+                $(window).scrollTop() + $(window).innerHeight();
+            var top_of_screen = $(window).scrollTop();
 
-        if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)) {
-            $(this).addClass('show');
-        }
-    });
-}).scroll();
+            if (
+                bottom_of_screen > top_of_element &&
+                top_of_screen < bottom_of_element
+            ) {
+                $(this).addClass("show");
+            }
+        });
+    })
+    .scroll();
 
-$(document).mousemove(function(getCurrentPos){
+$(document).mousemove(function (getCurrentPos) {
     var xCord = getCurrentPos.clientX;
     var yCord = getCurrentPos.clientY;
 
-    var xPercent = xCord/window.innerWidth;
-    var yPercent = yCord/window.innerHeight;
+    var xPercent = xCord / window.innerWidth;
+    var yPercent = yCord / window.innerHeight;
 
-    $('.login-card-shadow').css('transform', 'translate3d(' + (20 * xPercent + 10) + 'px, ' + (20 * yPercent + 10) + 'px, ' + (25 * yPercent + 5) + 'px)');
+    $(".login-card-shadow").css(
+        "transform",
+        "translate3d(" +
+            (20 * xPercent + 10) +
+            "px, " +
+            (20 * yPercent + 10) +
+            "px, " +
+            (25 * yPercent + 5) +
+            "px)"
+    );
 });
 
 var toastTimeout;
-$('#login-form').on('submit', function (e) {
+$("#login-form").on("submit", function (e) {
     e.preventDefault();
 
     var form = $(this);
-    var toast = $('.toast');
-    var loader = $('.loader');
+    var toast = $(".toast");
+    var loader = $(".loader");
 
     loader.fadeIn();
-    toast.removeClass('show');
+    toast.removeClass("show");
     clearTimeout(toastTimeout);
 
     $.ajax({
-        method: 'post',
+        method: "post",
         data: form.serialize(),
         success: function () {
             window.location.href = "products";
         },
         error: function (r) {
-            toast.html('');
+            toast.html("");
 
             for (let inputName in r.responseJSON.errors) {
-                for (let i = 0; i < r.responseJSON.errors[inputName].length; i++) {
-                    toast.append('<p class="mb-0">' + r.responseJSON.errors[inputName][i] + '</p>');
+                for (
+                    let i = 0;
+                    i < r.responseJSON.errors[inputName].length;
+                    i++
+                ) {
+                    toast.append(
+                        '<p class="mb-0">' +
+                            r.responseJSON.errors[inputName][i] +
+                            "</p>"
+                    );
                 }
             }
 
             loader.fadeOut(function () {
-                toast.addClass('show');
+                toast.addClass("show");
 
                 toastTimeout = setTimeout(function () {
-                    toast.removeClass('show');
+                    toast.removeClass("show");
                 }, 3000);
             });
-
-        }
+        },
     });
 });
 
-$(document).on('click', '.filter-title', function () {
-    $(this).closest('.filter-wrapper').toggleClass('open');
-    $(this).closest('.filter-wrapper').find('.filter-subitems').slideToggle();
+$(document).on("click", ".filter-title", function () {
+    $(this).closest(".filter-wrapper").toggleClass("open");
+    $(this).closest(".filter-wrapper").find(".filter-subitems").slideToggle();
 });
 
-$(document).on('change', '.products-filters-wrapper form input', function () {
+$(document).on("change", ".products-filters-wrapper form input", function () {
     $('.products-filters-wrapper input[name="page"]').val(1);
-    $(this).closest('form').submit();
+    $(this).closest("form").submit();
 });
 
-$(document).on('click', '.products-pagination-wrapper a.page-link', function (e) {
-    e.preventDefault();
-    $('.products-filters-wrapper input[name="page"]').val($(this).attr('href').split('page=')[1]);
-    $('.products-filters-wrapper form').submit();
-});
+$(document).on(
+    "click",
+    ".products-pagination-wrapper a.page-link",
+    function (e) {
+        e.preventDefault();
+        $('.products-filters-wrapper input[name="page"]').val(
+            $(this).attr("href").split("page=")[1]
+        );
+        $(".products-filters-wrapper form").submit();
+    }
+);
 
-$(document).on('submit', '.products-filters-wrapper form', function (e) {
+$(document).on("submit", ".products-filters-wrapper form", function (e) {
     e.preventDefault();
 
     var form = $(this);
-    var loader = $('.loader');
-    var  url = 'products?' + form.serialize();
+    var loader = $(".loader");
+    var url = "products?" + form.serialize();
 
     loader.fadeIn();
     window.history.pushState("", "", url);
@@ -95,10 +124,17 @@ $(document).on('submit', '.products-filters-wrapper form', function (e) {
     $.ajax({
         url: url,
         success: function (r) {
-            $('#products-grid').html(r);
-            console.log($('.products-pagination-wrapper span.page-link').length)
+            $("#products-grid").html(r);
+            console.log(
+                $(".products-pagination-wrapper span.page-link").length
+            );
             loader.fadeOut();
             $(window).scroll();
-        }
+        },
     });
+});
+
+$(".menuButton").on("click", function (e) {
+    e.preventDefault();
+    $(".burgerMenu").fadeToggle(200);
 });

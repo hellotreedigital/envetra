@@ -6,8 +6,22 @@
 
     <div class="container pb-5">
         <h2 class="products-title text-center"><b>Our Products</b></h2>
+        <div class="row">
+            <div class="col-lg-3 mb-5">
+                <div class="search-wrapper">
+                    <div class="p-2 d-flex justify-content-between align-items-center">
+                        <form class="flex-grow-1">
+                            <input type="text" placeholder="Search" />
+                        </form>
+                        <img src="{{ asset('images/search.png') }}" alt="search" />
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row gx-4 gx-lg-5">
+
             <div class="col-lg-3 position-relative mb-5 pb-5">
+
                 <div class="products-filters-wrapper">
                     <form>
                         <input type="hidden" name="page" value="">
