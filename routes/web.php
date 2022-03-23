@@ -32,8 +32,9 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/logout', 'LoginController@logout')->name('logout');
-    Route::get('/products', 'ProductsController@index');
+    Route::get('/products', 'ProductsController@index')->name('products');
     Route::get('/products/{slug}', 'ProductsController@show')->name('products-single');
+
 });
 
 Route::middleware('auth')->group(function () {

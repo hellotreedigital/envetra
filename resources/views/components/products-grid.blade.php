@@ -1,7 +1,7 @@
 <div class="row">
     @foreach ($products as $product)
-        <div class="col-md-6 col-lg-4 mb-5" animate="down">
-            <a href="{{ route('products-single', [$product->slug]) }}">
+        <div class="col-md-6 col-lg-4 mb-5 product-grid-item" animate="down">
+            <a data-href="{{ route('products-single', [$product->slug]) }}">
                 <div class="product-wrapper">
                     <div class="pb-1 mb-2">
                         <div class="product-image">
