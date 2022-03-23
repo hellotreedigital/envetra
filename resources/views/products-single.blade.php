@@ -141,8 +141,8 @@
                     </div>
                     <div class="arrowLeftDescription px-2">
                         <div class="my-auto pt-1">
-                            <p class="fw-bold mb-0">Product Name</p>
-                            <p class="mt-0">100.00$</p>
+                            <p class="fw-bold mb-0">{{$prev_product->title}}</p>
+                            <p class="mt-0">{{$prev_product->price}} $</p>
                         </div>
                         <img src="https://via.placeholder.com/38x38.png" alt="product" />
                     </div>
@@ -157,8 +157,8 @@
                     <div class="arrowRightDescription px-2">
                         <img src="https://via.placeholder.com/38x38.png" alt="product" />
                         <div class="my-auto pt-1 ps-2">
-                            <p class="fw-bold mb-0">Product Name</p>
-                            <p>100.00$</p>
+                            <p class="fw-bold mb-0">{{$next_product->title}}</p>
+                            <p>{{$next_product->price}} $</p>
                         </div>
                     </div>
                     <div class="text-center d-flex align-items-center justify-content-center arrowRight">
