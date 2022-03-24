@@ -66,6 +66,7 @@ class ProductsController extends Controller
                 $query->search(request('search'));
             })
             ->where('id', '<', $product->id)
+            ->orderBy('id', 'DESC')
             ->first();
 
         $next_product = Product::select()
