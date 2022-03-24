@@ -30,6 +30,7 @@
 
                             <div class="row">
                                 <div class="col-lg-3 col-sm-4 col-6 colMenuBorder py-lg-5 py-3 ps-lg-5 ps-4 d-flex flex-column">
+                                    <a class="fw-bold mb-2" href="{{route('products')}}">Home</a>
                                     @foreach ($filter_categories as $filter_category)
                                     @php
                                     $filter_category_open = isset(request('filters_category')[$filter_category->id]) && request('filters_category')[$filter_category->id];

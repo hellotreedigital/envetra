@@ -102,12 +102,9 @@ $(document).on("click", ".filter-single", function () {
 });
 
 $(document).on("click", ".menuClear", function () {
-   $(".category-label").removeClass("checked");
+   $(".category-label input").prop("checked", false);
 });
 
-$(document).on("change", ".category-label", function(){
-    $(this).toggleClass('checked');
-});
 
 $(document).on("change", ".products-filters-wrapper form input", function () {
     $('.products-filters-wrapper input[name="page"]').val(1);
