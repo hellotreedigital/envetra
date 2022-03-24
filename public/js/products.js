@@ -155,11 +155,9 @@ $(document).on("submit", ".products-filters-wrapper form", function (e) {
 $(".menuButton").on("click", function (e) {
     e.preventDefault();
     $(".burgerMenu").fadeToggle(200);
-    if($(".category-content").is(":hidden")){
+    if($(".category-content").children(':visible').length == 0 ){
         $(".category-content").first().removeClass("d-none");
     }
-    
-
 });
 
 
