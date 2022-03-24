@@ -43,7 +43,7 @@
                                     @endforeach
                                 </div>
 
-                                <div class="col-lg-9 col-sm-8 col-6 ps-1 ps-sm-0 py-lg-5 py-3">
+                                <div class="col-lg-9 col-sm-8 col-6 ps-1 ps-sm-0 py-lg-5 py-3 category">
 
                                     @foreach ($filter_categories as $filter_category)
                                     @php
@@ -53,7 +53,7 @@
                                         <p class="ms-2">Select {{$filter_category->title}}</p>
                                         <div class="row gx-0">
                                             @foreach ($filter_category->subcategories as $subcategory)
-                                            <div class="col-3">
+                                            <div class="col-lg-3 col-md-6 col-sm-12">
                                                 <label class="category-label">
                                                     <input type="radio" class="d-none" name="filters_category[{{ $filter_category->id }}]" value="{{ $subcategory->id }}" {{ isset(request('filters_category')[$filter_category->id]) && request('filters_category')[$filter_category->id] == $subcategory->id ? 'checked' : '' }}>
                                                     <div class="checkbox-view"></div>
