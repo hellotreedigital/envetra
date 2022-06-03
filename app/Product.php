@@ -39,4 +39,9 @@ class Product extends Model
     {
         return $this->hasMany('App\ProductsComposition');
     }
+    
+    public function analytical_component()
+    {
+        return $this->hasMany('App\AnalyticalComponent');
+    }
 }

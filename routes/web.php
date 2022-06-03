@@ -49,6 +49,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/upload-composition-csv', 'Cms\UploadCompositionCsvController@index');
     Route::post('/admin/upload-composition-csv', 'Cms\UploadCompositionCsvController@store');
+    
+    
+    Route::get('/admin/upload-analytical-component-csv', 'Cms\UploadAnalyticalComponentCsvController@index');
+    Route::post('/admin/upload-analytical-component-csv', 'Cms\UploadAnalyticalComponentCsvController@store');
 });
 
 // Route::get('generate/slug', function () {

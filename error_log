@@ -1,0 +1,9 @@
+[24-Mar-2022 16:17:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Composer\Util\Platform::getEnv() in /home/envetra/public_html/vendor/composer/composer/src/Composer/Console/GithubActionError.php:39
+Stack trace:
+#0 phar:///opt/cpanel/composer/bin/composer/src/Composer/Console/Application.php(345): Composer\Console\GithubActionError->emit('Unable to write...')
+#1 phar:///opt/cpanel/composer/bin/composer/vendor/symfony/console/Application.php(117): Composer\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 phar:///opt/cpanel/composer/bin/composer/src/Composer/Console/Application.php(128): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 phar:///opt/cpanel/composer/bin/composer/bin/composer(73): Composer\Console\Application->run()
+#4 /opt/cpanel/composer/bin/composer(29): require('phar:///opt/cpa...')
+#5 {main}
+  thrown in /home/envetra/public_html/vendor/composer/composer/src/Composer/Console/GithubActionError.php on line 39

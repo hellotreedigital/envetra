@@ -106,7 +106,7 @@
             @endforeach
         </div>
         <div class="col-lg-7 pt-4 pt-lg-0">
-            @if ($product->composition)
+            @if ($product->composition->count() > 0)
             <div class=" mb-5">
                 <h4><b>Composition:</b></h4>
                 @foreach ($product->composition as $i => $composition)
@@ -117,6 +117,23 @@
                         </div>
                         <div class="col-2 text-end">
                             <p class="m-0"><b>{{ $composition->value }}</b></p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            @endif
+            @if ($product->analytical_component->count() > 0)
+            <div class=" mb-5">
+                <h4><b>Analytical Components:</b></h4>
+                @foreach ($product->analytical_component as $i => $single)
+                <div class="border-bottom {{ $i ? 'py-2' : 'pb-2' }}">
+                    <div class="row {{ $i ? 'py-1' : 'pb-1' }}">
+                        <div class="col-10">
+                            <p class="m-0">{{ $single['title'] }}</p>
+                        </div>
+                        <div class="col-2 text-end">
+                            <p class="m-0"><b>{{ $single['value'] }}</b></p>
                         </div>
                     </div>
                 </div>
